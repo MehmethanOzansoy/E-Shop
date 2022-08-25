@@ -44,8 +44,8 @@
                 <div class="form-floating mb-3">
                     <select class="form-select" aria-label="Floating label select example" name="status">
                         <option selected="">Status</option>
-                        <option value="1">True</option>
-                        <option value="2">False</option>
+                        <option>True</option>
+                        <option>False</option>
                     </select>
                 </div>
 

@@ -17,7 +17,11 @@ class CategoryController extends Controller
     {
         //
 
-        return view('admin.category.index');
+        $data=Category::all();
+        return view('admin.category.index',[
+            'data' => $data,
+
+        ]);
     }
 
     /**
@@ -48,6 +52,7 @@ class CategoryController extends Controller
         $data->description = $request->description;
         $data->status = $request->status;
         $data->save();
+        return redirect('admin/category');
 
 
     }
@@ -69,9 +74,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category,$id)
     {
         //
+        echo "Edit Page",$id;
     }
 
     /**

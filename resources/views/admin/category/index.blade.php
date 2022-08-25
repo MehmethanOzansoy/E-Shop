@@ -14,14 +14,45 @@
         <div class="col-sm-6">
             <h1>Category List</h1>
         </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item ml-auto"><a href="/admin">Home</a></li>
+                <li class="breadcrumb-item" aria-current="page">Add Category</li>
+            </ol>
+        </nav>
     </div>
-    <div class="container-fluid pt-4 px-4">
-        <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
+    <div class="bg-secondary rounded h-100 p-4">
+        <h6 class="mb-4">Category Table</h6>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Show</th>
 
-            <div class="col-md-6 text-center">
-                <h3>This is blank page</h3>
-            </div>
-        </div>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($data as $rs)
+                <tr>
+                    <th scope="row">{{$rs->id}}</th>
+                    <td>{{$rs->title}}</td>
+                    <td>{{$rs->description}}</td>
+                    <td>{{$rs->image}}</td>
+                    <td>{{$rs->status}}</td>
+                    <td> <a href="/admin/category/edit/{{$rs->id}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
+                    <td> <a href="/admin/category/delete/{{$rs->id}}" class="btn btn-block btn-danger btn-sm">Delete</a></td>
+                    <td> <a href="/admin/category/show/{{$rs->id}}" class="btn btn-block btn-success btn-sm">Show</a></td>                    
+                </tr>
+                @endforeach
+            </tbody>
+
+        </table>
     </div>
 </div>
 < @endsection
