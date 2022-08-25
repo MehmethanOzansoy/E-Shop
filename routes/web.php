@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminPanel\HomeController as AdminPanelHomeController;
-use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Rules\Role;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminPanel\CategoryController;
+use App\Http\Controllers\AdminPanel\HomeController as AdminPanelHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,8 @@ Route::middleware([
 
 Route::get('/admin',[AdminPanelHomeController::class,'index'])->name('admin');
 
+// ******************************* Admin Controller Routes ********************************
+
+Route::get('/admin/category',[CategoryController::class,'index'])->name('admin_category');
+Route::get('/admin/category/create',[CategoryController::class,'create'])->name('admin_category_create');
+Route::post('/admin/category/store',[CategoryController::class,'store'])->name('admin_category_store'); 
