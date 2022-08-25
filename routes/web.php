@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\HomeController as AdminPanelHomeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Jetstream\Rules\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,6 @@ Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name('param'
 Route::get('/save',[HomeController::class,'save'])->name('save');
 
 
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -48,3 +49,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+// ********************************Admin Panel Controller**********************************
+
+Route::get('/admin',[AdminPanelHomeController::class,'index'])->name('admin');
+
