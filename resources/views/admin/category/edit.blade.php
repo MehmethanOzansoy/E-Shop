@@ -1,18 +1,18 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Edit Category:' .$data->title)
 
 @section('content')
 
     <div class="container-fluid pt-4 px-4">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Add Category</h1>
+                <h1>Düzenle: {{$data->title}}</h1>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item ml-auto"><a href="/admin">Home</a></li>
-                    <li class="breadcrumb-item" aria-current="page">Add Category</li>
+                    <li class="breadcrumb-item" aria-current="page">Edit Category</li>
                 </ol>
             </nav>
         </div>

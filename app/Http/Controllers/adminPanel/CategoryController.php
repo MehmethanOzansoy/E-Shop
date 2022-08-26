@@ -19,8 +19,7 @@ class CategoryController extends Controller
 
         $data=Category::all();
         return view('admin.category.index',[
-            'data' => $data,
-
+            'data' => $data
         ]);
     }
 
@@ -77,7 +76,10 @@ class CategoryController extends Controller
     public function edit(Category $category,$id)
     {
         //
-        echo "Edit Page",$id;
+        $data=Category::find($id);
+        return view('admin.category.edit',[
+            'data' => $data
+        ]);
     }
 
     /**
