@@ -54,7 +54,9 @@
             </tbody>
 
         </table>
-        </div>
+        <a href="/admin/category/create"> <button type="button" class="btn btn-lg btn-primary m-2">Add Category</button>
+        </a>
     </div>
+</div>
 </div>
 < @endsection
