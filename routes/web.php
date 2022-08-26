@@ -63,3 +63,5 @@ Route::get('/admin/category/create',[AdminCategoryController::class,'create'])->
 Route::post('/admin/category/store',[AdminCategoryController::class,'store'])->name('admin_category_store'); 
 Route::get('/admin/category/edit/{id}',[AdminCategoryController::class,'edit'])->name('admin_category_edit');
 Route::get('/admin/category/delete/{id}',[AdminCategoryController::class,'delete'])->name('admin_category_delete');
+Route::post('/admin/category/update/{id}',[AdminCategoryController::class,'update'])->name('admin_category_update');
+

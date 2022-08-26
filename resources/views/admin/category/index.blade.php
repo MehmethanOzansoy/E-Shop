@@ -27,6 +27,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Keywords</th>
                     <th scope="col">Description</th>
                     <th scope="col">Image</th>
                     <th scope="col">Status</th>
@@ -41,6 +42,7 @@
                 <tr>
                     <th scope="row">{{$rs->id}}</th>
                     <td>{{$rs->title}}</td>
+                    <td>{{$rs->keywords}}</td>
                     <td>{{$rs->description}}</td>
                     <td>{{$rs->image}}</td>
                     <td>{{$rs->status}}</td>
