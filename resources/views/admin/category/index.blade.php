@@ -3,7 +3,8 @@
 @section('title', 'Category List')
 
 @section('content')
-<div class="container-fluid pt-4 px-4">
+>
+<div class="container-fluid pt-1 px-4">
     <div id="spinner" class="bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
@@ -54,9 +55,9 @@
             </tbody>
 
         </table>
-        <a href="/admin/category/create"> <button type="button" class="btn btn-lg btn-primary m-2">Add Category</button>
+        <a href="/admin/category/create"> <button type="button" class="btn btn-lg btn-primary m-2">Kategori Ekle</button>
         </a>
     </div>
 </div>
 </div>
-< @endsection
+@endsection
