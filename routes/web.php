@@ -29,16 +29,16 @@ Route::get('/welcome', function () {
 });
 
 //3- Call controller function
-Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 //4- Route-> Controller->view
-Route::get('/test',[HomeController::class,'test'])->name('test');
+Route::get('/test', [HomeController::class, 'test'])->name('test');
 
 //5- Route with parameter
-Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name('param');
+Route::get('/param/{id}/{number}', [HomeController::class, 'param'])->name('param');
 
 //6- Route with post
-Route::get('/save',[HomeController::class,'save'])->name('save');
+Route::get('/save', [HomeController::class, 'save'])->name('save');
 
 
 Route::middleware([
@@ -51,18 +51,17 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
-// ********************************Admin Panel Controller**********************************
-
-Route::get('/admin',[AdminPanelHomeController::class,'index'])->name('admin');
-
-// ******************************* Admin Controller Routes ********************************
-
-Route::get('/admin/category',[AdminCategoryController::class,'index'])->name('admin_category');
-Route::get('/admin/category/create',[AdminCategoryController::class,'create'])->name('admin_category_create');
-Route::post('/admin/category/store',[AdminCategoryController::class,'store'])->name('admin_category_store'); 
-Route::get('/admin/category/edit/{id}',[AdminCategoryController::class,'edit'])->name('admin_category_edit');
-Route::post('/admin/category/update/{id}',[AdminCategoryController::class,'update'])->name('admin_category_update');
-Route::get('/admin/category/destroy/{id}',[AdminCategoryController::class,'destroy'])->name('admin_category_destroy');
-Route::get('/admin/category/show/{id}',[AdminCategoryController::class,'show'])->name('admin_category_show');
-
+Route::prefix('admin')->name('admin')->group(function () {
+    // ********************************Admin Panel Controller**********************************
+    Route::get('/', [AdminPanelHomeController::class, 'index'])->name('admin');
+    // ******************************* Admin Controller Routes ********************************
+    Route::prefix('category')->name('category')->group(function () {
+        Route::get('/', [AdminCategoryController::class, 'index'])->name('admin_category');
+        Route::get('/create', [AdminCategoryController::class, 'create'])->name('admin_category_create');
+        Route::post('/store', [AdminCategoryController::class, 'store'])->name('admin_category_store');
+        Route::get('/edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin_category_edit');
+        Route::post('/update/{id}', [AdminCategoryController::class, 'update'])->name('admin_category_update');
+        Route::get('/destroy/{id}', [AdminCategoryController::class, 'destroy'])->name('admin_category_destroy');
+        Route::get('/show/{id}', [AdminCategoryController::class, 'show'])->name('admin_category_show');
+    });
+});
