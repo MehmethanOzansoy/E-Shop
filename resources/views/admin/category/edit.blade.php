@@ -11,13 +11,13 @@
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item ml-auto"><a href="/admin">Home</a></li>
+                <li class="breadcrumb-item ml-auto"><a href="{{route('admin.index')}}">Home</a></li>
                 <li class="breadcrumb-item" aria-current="page">Edit Category</li>
             </ol>
         </nav>
     </div>
 
-    <form action="/admin/category/update/{{$data->id}}" method="post">
+    <form action="{{route('admin.category.update',['id'=>$data->id])}}" method="post">
         <div class="container-fluid pt-4 px-4">
             <div class="col-sm-12 col-xl-6">
                 <div class="bg-secondary rounded h-100 p-4">

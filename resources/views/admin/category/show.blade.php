@@ -12,17 +12,17 @@
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item ml-auto"><a href="/admin">Home</a></li>
+                    <li class="breadcrumb-item ml-auto"><a href="{{route('admin.index')}}">Home</a></li>
                     <li class="breadcrumb-item" aria-current="page">Show Category</li>
                 </ol>
             </nav>
         </div>
-        <a href="/admin/category/edit/{{$data->id}}" style="color:aqua">
+        <a href="{{route('admin.category.edit',['id'=>$data->id])}}" style="color:aqua">
             <button type="button" class="btn btn-square btn-info m-2"><i class="fa fa-tools"></i></button>
         Düzenle</a>
 
-        <a href="/admin/category/destroy/{{$data->id}}">
-            <button type="button" class="btn btn-square btn-primary m-2"><i class="fa fa-exclamation-triangle"></i></button>
+        <a href="{{route('admin.category.destroy',['id'=>$data->id])}}">
+            <button type="button" class="btn btn-square btn-primary m-2" onclick="return confirm('Eminmisiniz!!! Silinecek')"><i class="fa fa-exclamation-triangle"></i></button>
         Sil</a>
         <div class="col-sm-12 col-xl-6">
             <div class="bg-secondary rounded h-100 p-4">

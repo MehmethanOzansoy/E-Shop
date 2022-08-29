@@ -16,7 +16,7 @@
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item ml-auto"><a href="/admin">Home</a></li>
+                <li class="breadcrumb-item ml-auto"><a href="{{route('admin.index')}}">Home</a></li>
                 <li class="breadcrumb-item" aria-current="page">Add Category</li>
             </ol>
         </nav>
@@ -47,15 +47,15 @@
                     <td>{{$rs->description}}</td>
                     <td>{{$rs->image}}</td>
                     <td>{{$rs->status}}</td>
-                    <td> <a href="/admin/category/edit/{{$rs->id}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
-                    <td> <a href="/admin/category/destroy/{{$rs->id}}" class="btn btn-block btn-danger btn-sm">Delete</a></td>
-                    <td> <a href="/admin/category/show/{{$rs->id}}" class="btn btn-block btn-success btn-sm">Show</a></td>
+                    <td> <a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
+                    <td> <a href="{{route('admin.category.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Silincek!!! Eminmisiniz')">Delete</a></td>
+                    <td> <a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm">Show</a></td>
                 </tr>
                 @endforeach
             </tbody>
 
         </table>
-        <a href="/admin/category/create"> <button type="button" class="btn btn-lg btn-primary m-2">Kategori Ekle</button>
+        <a href="{{route('admin.category.create')}}"> <button type="button" class="btn btn-lg btn-primary m-2">Kategori Ekle</button>
         </a>
     </div>
 </div>
