@@ -27,7 +27,7 @@
                     <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="parent_id">
                         <option value="0" selected="selected">Main Category</option>
                         @foreach($data as $rs)
-                        <option value="{{ $rs->id }}">{{\app\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                        <option value="{{ $rs->id }}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                         @endforeach
 
                     </select>

@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Edit Category:' .$data->title)
+@section('title', 'Ürünü Düzenle:' .$data->title)
 
 @section('content')
 
@@ -12,12 +12,12 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item ml-auto"><a href="{{route('admin.index')}}">Home</a></li>
-                <li class="breadcrumb-item" aria-current="page">Ürünü Düzenle</li>
+                <li class="breadcrumb-item" aria-current="page">Edit Category</li>
             </ol>
         </nav>
     </div>
 
-    <form action="{{route('admin.product.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
         <div class="container-fluid pt-4 px-4">
             <div class="col-sm-12 col-xl-6">
                 <div class="bg-secondary rounded h-100 p-4">
@@ -25,7 +25,7 @@
                     <h6 class="mb-4">Düzenle</h6>
                     <h6>Select Parent Category</h6>
                     <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="parent_id">
-                        <option value="0" selected="selected">Ana Kategori</option>
+                        <option value="0" selected="selected">Main Category</option>
                         @foreach($datalist as $rs)
                         <option value="{{ $rs->id }}" @if ($rs->id ==$data->parent_id) selected="selected" @endif>
                             {{\app\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}

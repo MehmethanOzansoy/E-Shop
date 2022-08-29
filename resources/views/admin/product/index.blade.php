@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Category List')
+@section('title', 'Ürün Listesi')
 
 @section('content')
 >
@@ -12,37 +12,42 @@
     </div>
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Category List</h1>
+            <h1>Ürün Listesi</h1>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item ml-auto"><a href="{{route('admin.index')}}">Home</a></li>
-                <li class="breadcrumb-item" aria-current="page">Add Category</li>
+                <li class="breadcrumb-item" aria-current="page">Ürün Ekle</li>
             </ol>
         </nav>
     </div>
     <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-4">Category Table</h6>
+        <h6 class="mb-4">Ürün Tablosu</h6>
         <table class="table table-dark">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Ana Kategori</th>
+                    <th scope="col">Kategori</th>
+                    <th scope="col">Kullanıcı_Id</th>
                     <th scope="col">Başlık</th>
                     <th scope="col">Anahtar Kelime</th>
+                    <th scope="col">Açıklama</th>
                     <th scope="col">Resim</th>
+                    <th scope="col">Detay</th>
+                    <th scope="col">Fiyat</th>
+                    <th scope="col">Miktarı</th>
+                    <th scope="col">Minimum Miktar</th>
+                    <th scope="col">Vergi</th>
                     <th scope="col">Statü</th>
-                    <th scope="col">Düzenle</th>
-                    <th scope="col">Sil</th>
-                    <th scope="col">Göster</th>
-
                 </tr>
             </thead>
             <tbody>
                 @foreach($data as $rs)
                 <tr>
                     <th scope="row">{{$rs->id}}</th>
-                    <td>{{\app\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</td>
+                    <th scope="row">{{$rs->category_id}}</th>
+                    <th scope="row">{{$rs->user_id}}</th>
+                    <td>{{\app\Http\Controllers\AdminPanel\AdminProductController::getParentsTree($rs,$rs->title) }}</td>
                     <td>{{$rs->title}}</td>
                     <td>{{$rs->keywords}}</td>
                     <td>
@@ -51,15 +56,15 @@
                         @endif
                     </td>
                     <td>{{$rs->status}}</td>
-                    <td> <a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Düzenle</a></td>
-                    <td> <a href="{{route('admin.category.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Silincek!!! Eminmisiniz')">Sil</a></td>
-                    <td> <a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm">Göster</a></td>
+                    <td> <a href="{{route('admin.product.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
+                    <td> <a href="{{route('admin.product.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Silincek!!! Eminmisiniz')">Delete</a></td>
+                    <td> <a href="{{route('admin.product.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm">Show</a></td>
                 </tr>
                 @endforeach
             </tbody>
 
         </table>
-        <a href="{{route('admin.category.create')}}"> <button type="button" class="btn btn-lg btn-primary m-2">Kategori Ekle</button>
+        <a href="{{route('admin.product.create')}}"> <button type="button" class="btn btn-lg btn-primary m-2">Ürün Ekle</button>
         </a>
     </div>
 </div>
