@@ -27,9 +27,9 @@
             <thead>
                 <tr>
                     <th scope="col">Id</th>
+                    <th scope="col">Parent</th>
                     <th scope="col">Title</th>
                     <th scope="col">Keywords</th>
-                    <th scope="col">Description</th>
                     <th scope="col">Image</th>
                     <th scope="col">Status</th>
                     <th scope="col">Edit</th>
@@ -42,9 +42,9 @@
                 @foreach($data as $rs)
                 <tr>
                     <th scope="row">{{$rs->id}}</th>
+                    <td>{{\app\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</td>
                     <td>{{$rs->title}}</td>
                     <td>{{$rs->keywords}}</td>
-                    <td>{{$rs->description}}</td>
                     <td>
                         @if($rs->image)
                            <img src="{{Storage::url($rs->image)}}" style='height: 45px;'>
