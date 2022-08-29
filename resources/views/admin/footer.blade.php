@@ -21,7 +21,6 @@
 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 </div>
 
-<script src="https://example.com/fontawesome/v6.1.2/js/all.js"></script>
 <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

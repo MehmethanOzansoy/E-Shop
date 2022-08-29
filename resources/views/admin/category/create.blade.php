@@ -17,7 +17,7 @@
             </nav>
         </div>
 
-        <form action="/admin/category/store" method="post">
+        <form action="/admin/category/store" method="post" enctype="multipart/form-data">
             <div class="container-fluid pt-4 px-4">
                 <div class="col-sm-12 col-xl-6">
                     <div class="bg-secondary rounded h-100 p-4">
