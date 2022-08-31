@@ -1,9 +1,8 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Category List')
+@section('title', 'Kategori Listesi')
 
 @section('content')
->
 <div class="container-fluid pt-1 px-4">
     <div id="spinner" class="bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -12,12 +11,12 @@
     </div>
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Category List</h1>
+            <h1>Kategori Listesi</h1>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item ml-auto"><a href="{{route('admin.index')}}">Home</a></li>
-                <li class="breadcrumb-item" aria-current="page">Add Category</li>
+                <li class="breadcrumb-item ml-auto"><a href="{{route('admin.index')}}">Ana Sayfa</a></li>
+                <li class="breadcrumb-item" aria-current="page">Kategori Ekle</li>
             </ol>
         </nav>
     </div>
@@ -42,12 +41,12 @@
                 @foreach($data as $rs)
                 <tr>
                     <th scope="row">{{$rs->id}}</th>
-                    <td>{{\app\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</td>
+                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</td>
                     <td>{{$rs->title}}</td>
                     <td>{{$rs->keywords}}</td>
                     <td>
                         @if($rs->image)
-                           <img src="{{Storage::url($rs->image)}}" style='height: 45px;'>
+                        <img src="{{Storage::url($rs->image)}}" style='height: 45px;'>
                         @endif
                     </td>
                     <td>{{$rs->status}}</td>
@@ -59,9 +58,10 @@
             </tbody>
 
         </table>
+
         <a href="{{route('admin.category.create')}}"> <button type="button" class="btn btn-lg btn-primary m-2">Kategori Ekle</button>
         </a>
     </div>
 </div>
-</div>
 @endsection
+</div>

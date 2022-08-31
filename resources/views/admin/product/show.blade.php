@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Show Category:' .$data->title)
+@section('title', 'Ürünü Göster: ' .$data->title)
 
 @section('content')
 
@@ -17,14 +17,14 @@
                 </ol>
             </nav>
         </div>
-        <a href="{{route('admin.category.edit',['id'=>$data->id])}}" style="color:aqua">
+        <a href="{{route('admin.product.edit',['id'=>$data->id])}}" style="color:aqua">
             <button type="button" class="btn btn-square btn-info m-2"><i class="fa fa-tools"></i></button>
-        Düzenle</a>
+            Düzenle</a>
 
-        <a href="{{route('admin.category.destroy',['id'=>$data->id])}}">
+        <a href="{{route('admin.product.destroy',['id'=>$data->id])}}">
             <button type="button" class="btn btn-square btn-primary m-2" onclick="return confirm('Eminmisiniz!!! Silinecek')"><i class="fa fa-exclamation-triangle"></i></button>
-        Sil</a>
-        <div class="col-sm-12 col-xl-6">
+            Sil</a>
+        <div class="col-sm-12 col-xl-12">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">{{$data->title}}</h6>
                 <table class="table">
@@ -34,20 +34,52 @@
                             <td>{{$data->id}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="width: 50px;">Title:</th>
+                            <th scope="row" style="width: 50px;">Kategori:</th>
+                            <td>{{$data->category_id}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width: 50px;">Kullanıcı_id:</th>
+                            <td>{{$data->user_id}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width: 50px;">Başlık:</th>
                             <td>{{$data->title}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="width:50;">Keywords:</th>
+                            <th scope="row" style="width:50;">Anahtar Kelime:</th>
                             <td>{{$data->keywords}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="width:50px">Description:</th>
+                            <th scope="row" style="width:50;">Fiyat:</th>
+                            <td>{{$data->price}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:50;">Miktar:</th>
+                            <td>{{$data->quantity}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:50;">Min Miktar:</th>
+                            <td>{{$data->minquantity}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:50;">Vergi%:</th>
+                            <td>{{$data->tax}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:50;">Detay:</th>
+                            <td>{{$data->detail}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:50px">Açıklama:</th>
                             <td>{{$data->description}}</td>
                         </tr>
                         <tr>
                             <th scope="row" style="width:50;">Images:</th>
-                            <td>{{$data->image}}</td>
+                            <td>
+                                @if($data->image)
+                                <img src="{{Storage::url($data->image)}}" style='height: 150px; width: 150px;'>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row" style="width:50;">Status:</th>

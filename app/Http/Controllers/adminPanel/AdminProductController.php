@@ -159,7 +159,10 @@ class AdminProductController extends Controller
     {
         //
         $data= Product::find($id);
-        Storage::delete($data->image);
+        if($data->image && Storage::disk('public')->exists($data->image)){
+            Storage::delete($data->image);
+        }
+       
         $data->delete();
         return redirect('/admin/product');
 

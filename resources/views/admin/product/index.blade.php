@@ -3,7 +3,6 @@
 @section('title', 'Ürün Listesi')
 
 @section('content')
->
 <div class="container-fluid pt-1 px-4">
     <div id="spinner" class="bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -21,6 +20,7 @@
             </ol>
         </nav>
     </div>
+    <a href="{{route('admin.product.create')}}"> <button type="button" class="btn btn-lg btn-primary m-2">Ürün Ekle</button></a>
     <div class="bg-secondary rounded h-100 p-4">
         <h6 class="mb-4">Ürün Tablosu</h6>
         <table class="table table-dark">
@@ -28,34 +28,31 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Kategori</th>
-                    <th scope="col">Kullanıcı_Id</th>
                     <th scope="col">Başlık</th>
-                    <th scope="col">Anahtar Kelime</th>
-                    <th scope="col">Açıklama</th>
-                    <th scope="col">Resim</th>
-                    <th scope="col">Detay</th>
                     <th scope="col">Fiyat</th>
                     <th scope="col">Miktarı</th>
-                    <th scope="col">Minimum Miktar</th>
-                    <th scope="col">Vergi</th>
                     <th scope="col">Statü</th>
+                    <th scope="col">Resim</th>
+                    <th scope="col">Düzenle</th>
+                    <th scope="col">Sil</th>
+                    <th scope="col">Detay</th>
+
                 </tr>
             </thead>
             <tbody>
                 @foreach($data as $rs)
                 <tr>
                     <th scope="row">{{$rs->id}}</th>
-                    <th scope="row">{{$rs->category_id}}</th>
-                    <th scope="row">{{$rs->user_id}}</th>
-                    <td>{{\app\Http\Controllers\AdminPanel\AdminProductController::getParentsTree($rs,$rs->title) }}</td>
+                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</td>
                     <td>{{$rs->title}}</td>
-                    <td>{{$rs->keywords}}</td>
+                    <td>{{$rs->price}}</td>
+                    <td>{{$rs->quantity}}</td>
+                    <td>{{$rs->status}}</td>
                     <td>
                         @if($rs->image)
-                           <img src="{{Storage::url($rs->image)}}" style='height: 45px;'>
+                        <img src="{{Storage::url($rs->image)}}" style='height: 50px;'>
                         @endif
                     </td>
-                    <td>{{$rs->status}}</td>
                     <td> <a href="{{route('admin.product.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
                     <td> <a href="{{route('admin.product.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Silincek!!! Eminmisiniz')">Delete</a></td>
                     <td> <a href="{{route('admin.product.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm">Show</a></td>
@@ -64,9 +61,7 @@
             </tbody>
 
         </table>
-        <a href="{{route('admin.product.create')}}"> <button type="button" class="btn btn-lg btn-primary m-2">Ürün Ekle</button>
-        </a>
     </div>
 </div>
-</div>
 @endsection
+</div>
