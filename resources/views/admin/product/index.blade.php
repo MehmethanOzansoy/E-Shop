@@ -28,7 +28,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Kategori</th>
-                    <th scope="col">Başlık</th>
+                    <th scope="col">Marka</th>
                     <th scope="col">Fiyat</th>
                     <th scope="col">Miktarı</th>
                     <th scope="col">Statü</th>
@@ -43,8 +43,8 @@
                 @foreach($data as $rs)
                 <tr>
                     <th scope="row">{{$rs->id}}</th>
-                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</td>
-                    <td>{{$rs->title}}</td>
+                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category,$rs->category->title)}}</td>
+                    <td>{{$rs->keywords}}</td>
                     <td>{{$rs->price}}</td>
                     <td>{{$rs->quantity}}</td>
                     <td>{{$rs->status}}</td>

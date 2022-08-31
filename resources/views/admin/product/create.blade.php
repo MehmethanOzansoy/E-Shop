@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="keywords" placeholder="Keywords">
-                        <label for="floatingPassword">Anahtar Kelime</label>
+                        <label for="floatingPassword">Marka</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" name="price" value="0">
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="form-footer">
-                        <button type="submit" class="btn btn-primary">Add Category</button>
+                        <button type="submit" class="btn btn-primary">Ürünü Ekle</button>
                     </div>
 
                 </div>

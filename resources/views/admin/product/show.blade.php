@@ -35,7 +35,9 @@
                         </tr>
                         <tr>
                             <th scope="row" style="width: 50px;">Kategori:</th>
-                            <td>{{$data->category_id}}</td>
+                            <td>
+                                {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category,$data->category->title)}}
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row" style="width: 50px;">Kullanıcı_id:</th>
