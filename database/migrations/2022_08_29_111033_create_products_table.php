@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('keywords')->nullable();
             $table->string('description')->nullable();
             $table->string('image')->nullable();   
-            $table->string('detail')->nullable();    
+            $table->text('detail')->nullable();    
             $table->float('price')->nullable();
             $table->integer('quantity')->nullable();  
             $table->integer('minquantity')->nullable();

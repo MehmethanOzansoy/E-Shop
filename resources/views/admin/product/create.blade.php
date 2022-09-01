@@ -3,7 +3,7 @@
 @section('title', 'Ürün Ekle')
 
 @section('head')
-<script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
 @endsection
 
 @section('content')
@@ -20,8 +20,8 @@
                 </ol>
             </nav>
         </div>
-        <button type="submit" class="btn btn-primary">Ürünü Ekle</button>
         <form action="/admin/product/store" method="post" enctype="multipart/form-data">
+            <button type="submit" class="btn btn-primary">Ürünü Ekle</button>
             <div class="container-fluid pt-4 px-4">
                 <div class="col-sm-12 col-xl-12">
                     <div class="bg-secondary rounded h-100 p-4">
@@ -61,12 +61,17 @@
                             <label for="floatingPassword">Vergi %</label>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Description" id="detail" style="height: 150px;">
-                        <script>
-                            CKEDITOR.replace( '#detail' );
-                         </script>
-                    </textarea>
                             <label for="floatingTextarea">Detay</label>
+                            <textarea class="form-control" name="detail" id="detail">
+
+                            </textarea>
+                            <script>
+                                ClassicEditor
+                                    .create(document.querySelector('#detail'))
+                                    .catch(error => {
+                                        console.error(error);
+                                    });
+                            </script>
                         </div>
                         <hr>
                         <div class="form-floating">
@@ -79,13 +84,12 @@
                             <input class="form-control bg-dark" type="file" name="image" multiple="">
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <select class="form-select" aria-label="Floating label select example" name="status">
-                                <option selected="">Status</option>
-                                <option>True</option>
-                                <option>False</option>
-                            </select>
-                        </div>
+                        <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="status">
+                            <option selected="">Statü</option>
+                            <option>True</option>
+                            <option>False</option>
+                        </select>
+
                     </div>
                 </div>
             </div>

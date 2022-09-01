@@ -2,6 +2,10 @@
 
 @section('title', 'Ürünü Düzenle: ' .$data->title)
 
+@section('head')
+<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+@endsection
+
 @section('content')
 
 <div class="container-fluid pt-4 px-4">
@@ -40,10 +44,9 @@
                         <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}">
                         <label for="floatingPassword">Anahtar Kelime</label>
                     </div>
-
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" name="description" style="height: 150px;">{{$data->description}}</textarea>
-                        <label for="floatingTextarea">Açıklama</label>
+                        <input type="number" class="form-control" name="description" value="{{$data->description}}">
+                        <label for="floatingPassword">Açıklama</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" name="price" value="{{$data->price}}">
@@ -62,7 +65,14 @@
                         <label for="floatingPassword">Vergi %</label>
                     </div>
                     <div class="form-floating">
-                        <textarea class="form-control" name="detail" style="height: 150px;">{{$data->detail}}</textarea>
+                        <textarea class="form-control" id="detail" name="detail" style="height: 150px;">{!!$data->detail!!}</textarea>
+                        <script>
+                                ClassicEditor
+                                    .create(document.querySelector('#detail'))
+                                    .catch(error => {
+                                        console.error(error);
+                                    });
+                            </script>
                         <label for="floatingTextarea">Detay</label>
                     </div>
                     <div class="mb-3">
@@ -85,13 +95,4 @@
         </div>
     </form>
 </div>
-
-
-
-<div id="spinner" class="bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
-</div>
-
 @endsection

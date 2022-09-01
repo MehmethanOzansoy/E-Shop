@@ -68,8 +68,8 @@
                             <td>{{$data->tax}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="width:50;">Detay:</th>
-                            <td>{{$data->detail}}</td>
+                            <th scope="row">Detay:</th>
+                            <td>{!! $data->detail !!}</td>
                         </tr>
                         <tr>
                             <th scope="row" style="width:50px">Açıklama:</th>
@@ -105,6 +105,5 @@
             </div>
         </div>
     </div>
-    @endsection
-
 </div>
+@endsection
