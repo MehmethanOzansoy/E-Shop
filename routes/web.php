@@ -3,6 +3,7 @@
 use Laravel\Jetstream\Rules\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\AdminProductController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminPanelHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
@@ -76,4 +77,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/destroy/{id}','destroy')->name('destroy');
         Route::get('/show/{id}','show')->name('show');
     });
+
+        // ******************************* Admin Images Gallery Routes ********************************//
+        Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function () {
+            Route::get('/{pid}','index')->name('index');
+            Route::post('/store/{pid}','store')->name('store');
+            Route::get('/destroy/{pid}/{id}','destroy')->name('destroy');
+        });
 });

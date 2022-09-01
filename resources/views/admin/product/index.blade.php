@@ -33,6 +33,7 @@
                     <th scope="col">Miktarı</th>
                     <th scope="col">Statü</th>
                     <th scope="col">Resim</th>
+                    <th scope="col">Galeri</th>
                     <th scope="col">Düzenle</th>
                     <th scope="col">Sil</th>
                     <th scope="col">Detay</th>
@@ -52,6 +53,11 @@
                         @if($rs->image)
                         <img src="{{Storage::url($rs->image)}}" style='height: 50px;'>
                         @endif
+                    </td>
+                    <td>
+                        <a href="{{route('admin.image.index',['pid'=>$rs->id])}}" onclick="return !window.open(this.href, '','top=50 left=100 width=1100,height=700')">
+                            <img src="{{asset('assets')}}/admin/img/223117.png" style='height: 50px;'>
+                        </a>
                     </td>
                     <td> <a href="{{route('admin.product.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
                     <td> <a href="{{route('admin.product.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Silincek!!! Eminmisiniz')">Delete</a></td>

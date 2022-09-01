@@ -65,7 +65,6 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-        //return view('admin.category.store');
         $data = new Category();
         $data->parent_id = $request->parent_id;
         $data->title = $request->title;
