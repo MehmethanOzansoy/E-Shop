@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -10,7 +11,12 @@ class HomeController extends Controller
     //
     public function index(){
         
-        return view('home.index');
+        $sliderdata =  Product::limit(2)->get();
+        $productlist1 = Product::limit(6)->get();
+        return view('home.index',[
+            'sliderdata' => $sliderdata,
+            'productlist1' => $productlist1
+        ]);
     }
 
     public function test(){
@@ -18,9 +24,7 @@ class HomeController extends Controller
     }
 
     public function param($id,$number){
-        //echo "Parameter 1 :",$id;
-        //echo "<br> Parameter 2 :",$number; 
-        //echo "<br> sum of parameters:", $id+$number;
+        
         return view('home.test2',
         [
             'id' => $id,

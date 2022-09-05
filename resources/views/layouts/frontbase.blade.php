@@ -28,6 +28,10 @@
     @include("home.sidebar")
 @show
 
+@section('slider')
+    @include("home.slider")
+@show
+
 @yield('content')
 
 @include("home.footer")
