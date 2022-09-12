@@ -59,6 +59,9 @@ Route::middleware([
 Route::prefix('admin')->name('admin.')->group(function () {
     // ********************************Admin Panel Controller**********************************//
     Route::get('/', [AdminPanelHomeController::class, 'index'])->name('index');
+
+    Route::get('/setting',[AdminPanelHomeController::class,'setting']) -> name('setting');
+    Route::post('/setting',[AdminPanelHomeController::class,'settingUpdate']) -> name('setting.update');
     // ******************************* Admin Controller Routes ********************************//
     Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
         Route::get('/', 'index')->name('index');
