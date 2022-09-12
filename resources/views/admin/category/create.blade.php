@@ -23,13 +23,7 @@
                     @csrf
                     <h5 class="mb-4">Kategori Ekle</h5>
                     <label for="formFileMultiple" class="form-label">Ana Kategoriyi Seçin</label>
-                    <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="parent_id">
-                        <option value="0" selected="selected">Ana Kategoriyi Seçin</option>
-                        @foreach($data as $rs)
-                        <option value="{{ $rs->id }}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
-                        @endforeach
-
-                    </select>
+              
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="title" placeholder="Title">
                         <label for="floatingInput">Başlık</label>

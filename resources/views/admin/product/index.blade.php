@@ -36,7 +36,7 @@
                     <th scope="col">Galeri</th>
                     <th scope="col">Düzenle</th>
                     <th scope="col">Sil</th>
-                    <th scope="col">Detay</th>
+                    <th scope="col">Göster</th>
 
                 </tr>
             </thead>
@@ -44,7 +44,8 @@
                 @foreach($data as $rs)
                 <tr>
                     <th scope="row">{{$rs->id}}</th>
-                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category,$rs->category->title)}}</td>
+                
+                    <td>{{$rs->title}}</td>
                     <td>{{$rs->keywords}}</td>
                     <td>{{$rs->price}}</td>
                     <td>{{$rs->quantity}}</td>

@@ -37,7 +37,7 @@
                         <a href="/admin/product" class="nav-item nav-link" style="color:aqua;line-height: 20px;"><i class="nav-icon fas fa-shopping-cart"></i>Ürünler</a>
                         <a href="/admin/comment" class="nav-item nav-link" style="color:chartreuse"><i class="nav-icon fas fa-comment"></i>Yorumlar</a>
                         <a href="/admin/faq" class="nav-item nav-link" style="color:gold"><i class="nav-icon fas fa-question"></i>Sık Sorulan Sorular</a>
-                        <a href="/admin/messages" class="nav-item nav-link" style="color:deeppink"><i class="nav-icon fas fa-mail-bulk"></i>Mesajlar</a>
+                        <a href="/admin/message" class="nav-item nav-link" style="color:deeppink"><i class="nav-icon fas fa-mail-bulk"></i>Mesajlar</a>
                         <a href="/admin/user" class="nav-item nav-link" style="color:greenyellow"><i class="fa fa-user-alt me-2"></i>Kullanıcılar</a>
                         <a href="/admin/social" class="nav-item nav-link" style="color:lightsalmon"><i class="nav-icon fas fa-share"></i>Sosyal</a>
                         <a href="/admin/setting" class="nav-item nav-link" style="color:aliceblue"><i class="nav-icon fas fa-tools"></i>Ayarlar</a>

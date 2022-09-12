@@ -23,15 +23,7 @@
                     @csrf
                     <h6 class="mb-4">Düzenle</h6>
                     <h6>Select Parent Category</h6>
-                    <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="parent_id">
-                        <option value="0" selected="selected">Ana Kategori</option>
-                        @foreach($datalist as $rs)
-                        <option value="{{ $rs->id }}" @if ($rs->id ==$data->parent_id) selected="selected" @endif>
-                            {{\app\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}
-                        </option>
-                        @endforeach
-
-                    </select>
+                 
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="title" value="{{$data->title}}">
                         <label for="floatingInput">Title</label>

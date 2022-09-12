@@ -26,7 +26,6 @@
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Ana Kategori</th>
                     <th scope="col">Başlık</th>
                     <th scope="col">Anahtar Kelime</th>
                     <th scope="col">Resim</th>
@@ -34,14 +33,12 @@
                     <th scope="col">Düzenle</th>
                     <th scope="col">Sil</th>
                     <th scope="col">Göster</th>
-
                 </tr>
             </thead>
             <tbody>
                 @foreach($data as $rs)
                 <tr>
                     <th scope="row">{{$rs->id}}</th>
-                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</td>
                     <td>{{$rs->title}}</td>
                     <td>{{$rs->keywords}}</td>
                     <td>
@@ -53,6 +50,8 @@
                     <td> <a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Düzenle</a></td>
                     <td> <a href="{{route('admin.category.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Silincek!!! Eminmisiniz')">Sil</a></td>
                     <td> <a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm">Göster</a></td>
+                    
+
                 </tr>
                 @endforeach
             </tbody>
